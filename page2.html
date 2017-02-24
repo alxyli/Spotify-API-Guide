@@ -41,10 +41,43 @@
 					<header class="major">
 						<h2>Spotify API Basics</h2>
 					</header>
-
-					<p>Spotify's API allows applications to retrieve data from their music catalog, as well as manage users' playlists and saved music libraries. The API essentially consists of a bunch of endpoints that when "called", will return the requested information, like albums, artists, songs, top songs, and much more. </p>
 					
+					<h3>What does it do?</h3>
+					<p>Spotify's API allows applications to retrieve data from their music catalog, as well as manage users' playlists and saved music libraries. The API essentially consists of a bunch of endpoints that when called, will return the requested information, like albums, artists, songs, top songs, and much more. Some information, like retrieving user profiles, getting currently featured playlists, or getting a list of new releases, requires a server-side secret key exchange (a bit more on this below), so we'll be focusing on retrieving data from endpoints that don't require this exchange.</p>
 
+					<h3>Spotify Authentication and API Endpoints</h3>
+					<p>As I mentioned above, some requests to certain Spotify API endpoints require authorization, typically when the request involves fetching user information. Since we'll only be retrieving data like artists, albums, and songs in this guide, we don't need to exchange client credentials with their servers. Although we are accessing Spotify's API without an access token, the rate limit should be adequate for normal use and especially for the purposes of this guide. With that in mind, a complete list of Spotify's API endpoints can be found <a href="https://developer.spotify.com/web-api/endpoint-reference/">here</a>.
+					</p>
+
+					<h3>Our first request</h3>
+					<p>To make our first request, we just need the base URL:<code>https://api.spotify.com</code>
+					<br>
+					All of Spotify's endpoints branch from the base URL. 
+					<br><br>
+					Let's start by making a call to the search endpoint: <code>GET https://api.spotify.com/v1/search</code>
+					<br>
+					This endpoint requires two parameters: 
+					<ul>
+						<li>q: the search query's keywords</li>
+						<li>type: a comma separated list of types to search. The valid types are album, artist, playlist, and track</li>
+					</ul>
+					So if we wanted to search for Mozart in Spotify's catalog, the request would look something like this: <br>
+					<code>https://api.spotify.com/v1/search?q=mozart&type=artist</code>
+					<br><br>
+					Now that we have the request properly formatted, let's make a call to the Spotify API in JavaScript and see what we get back!
+					</p>
+					
+					<h3>Making a call to the Spotify API in JavaScript</h3>
+					<p>The call is going to look something like this in JavaScript:
+					<br>
+					<img src="images/mozartRequest.jpg" style="max-width: 55%">
+						
+
+
+
+
+					</p>
+					<a href="page3.html" class="button">Continue</a>
 				</div>
 			</section>
 
