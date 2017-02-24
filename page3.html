@@ -39,14 +39,23 @@
 				<div class="container">
 
 					<header class="major">
-						<h2>Generic</h2>
-						<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+						<h2>The JSON response</h2>
 					</header>
+					<h3>Parsing the response</h3>
+					<p><img src="images/mozartJSON.jpg" style="max-width:35%">
+					<br>
+					Yeah, it doesn't look great. But the good news is, the call to Spotify's search endpoint worked! Now we just need to parse out what we want and ignore everything else. There are a few properties that I want to point out. The name value is <code>"Wolfgang Amadeus Mozart"</code>, so that's good. Spotify also returns the genres he's associated with (in an array), the total number of his followers on Spotify, an image associated with the searched artist (the image will always be in an array of size 3, each element is the same image just smaller than the one before it, starting at 640x640 px), his Spotify ID, and his Spotify popularity value, to name a few. You should also notice that Mozart was returned as <code>0: Object</code>, just one element in an array of 20. All the other entries are other artists that matched our "Mozart" query. Luckily, Spotify does a pretty good job returning the results in descending order of relevance.
 
-					<p>Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan.</p>
-					<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan commodo odio cubilia ac eu interdum placerat placerat arcu commodo lobortis adipiscing semper ornare pellentesque.</p>
-					<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet blandit adipiscing arcu ante.</p>
-
+					<h3>So like, now what?</h3>
+					Now we can do whatever we want with this data! Something super simple (this is what I whipped together to test the search endpoint, actually) is to create a form that takes an artist as input and returns a sort of "profile" for the artist, including information like their stage name, their popularity on Spotify, the total number of followers they have, the genres they're associated with, and an image of them.
+					<br>
+					<img src="images/sampleSearch.jpg" style="max-width:35%">
+					<br>
+					<img src="images/sampleSearch2.jpg" style="max-width:35%"">
+					<br>
+					I think we can do something cooler than that though. Looking back at the Spotify API endpoints, it looks like if you have an artist's Spotify ID, you can make requests to retrieve their albums, top tracks, and related artists. Let's try to make an application that searches an artist and puts together a playlist of related artists' top tracks.
+					</p>
+					<a href="page4.html" class="button">Continue</a>
 				</div>
 			</section>
 
