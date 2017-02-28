@@ -47,15 +47,28 @@
 					<h3>Parsing the response</h3>
 					<p><img src="images/mozartJSON.jpg" style="max-width:35%">
 					<br>
-					Yeah, it doesn't look great. But the good news is, the call to Spotify's search endpoint worked! Now we just need to parse out what we want and ignore everything else. There are a few properties that I want to point out. The name value is <code>"Wolfgang Amadeus Mozart"</code>, so that's good. Spotify also returns the genres he's associated with (in an array), the total number of his followers on Spotify, an image associated with the searched artist (the image will always be in an array of size 3, each element is the same image just smaller than the one before it, starting at 640x640 px), his Spotify ID, and his Spotify popularity value, to name a few. You should also notice that Mozart was returned as <code>0: Object</code>, just one element in an array of 20. All the other entries are other artists that matched our "Mozart" query. Luckily, Spotify does a pretty good job returning the results in descending order of relevance.
+					Yeah, it doesn't look great. But the good news is, the call to Spotify's search endpoint worked! Now we just need to parse out what we want and ignore everything else. There are a few properties that I want to point out. The name value is <code>"Wolfgang Amadeus Mozart"</code>, so that's good. Spotify also returns the genres he's associated with (in an array), the total number of his followers on Spotify, an image associated with the searched artist (the image will always be in an array of size 3, each element is the same image just smaller than the one before it, starting at 640x640 px), his Spotify ID, and his Spotify popularity value, to name a few. You should also notice that Mozart was returned as <code>0: Object</code>, just one element in an array of 20. All the other entries are other artists that matched our "Mozart" query. Luckily, Spotify does a pretty good job returning the results in descending order of relevance.</p>
 
 					<h3>So like, now what?</h3>
-					Now we can do whatever we want with this data! Something super simple (this is what I whipped together to test the search endpoint, actually) is to create a form that takes an artist as input and returns a sort of "profile" for the artist, including information like their stage name, their popularity on Spotify, the total number of followers they have, the genres they're associated with, and an image of them.
+					<p>Well now we can do something with this data! Something super simple (this is what I whipped together to test the search endpoint) is to create a form that takes an artist as input and returns a sort of "profile" for the artist, including information like their stage name, their popularity on Spotify, the total number of followers they have, the genres they're associated with, and an image of them.
+					How do we go from <code>https://api.spotify.com/v1/search?q=mozart&type=artist</code> to calling Spotify's search endpoint on user input? Much of the code is similar, we just need to plug in the search form content into the query, like so:
+					<br>
+					<img src="images/genericSearch.jpg" style="max-width: 60%">
+					<br>
+					Using JavaScript, we extract the user input from the form and store it into the variable <code>payload</code>. Then we format the query in the <code>parameter</code> variable, and insert this into the request:
+					<br>
+					<code>req.open("GET", "https://api.spotify.com/v1/search" + parameter, true);</code>
+					<br>
+					Just like before, if the request was successful, we'll parse the response and extract the data we're interested in. In the code example above, we're displaying the artist's stage name, an image of them, their Spotify popularity, total followers, and genres that they're associated with, and the result looks like this: 
 					<br>
 					<img src="images/sampleSearch.jpg" style="max-width:25%">
 					<img src="images/sampleSearch2.jpg" style="max-width:36.2%">
+					<img src="images/sampleSearch3.jpg" style="max-width:23.8%">
 					<br>
-					I think we can do something cooler than that though. Looking back at the Spotify API endpoints, it looks like if you have an artist's Spotify ID, you can make requests to retrieve their albums, top tracks, and related artists. Let's try to make an application that searches an artist and puts together a playlist of related artists' top tracks.
+					</p>
+
+					<h3>Using more endpoints</h3>
+					<p>I think we can do something cooler than just searching artists and displaying information about them though. Taking a look back at the Spotify API endpoints, if you have an artist's Spotify ID, you can make requests to other endpoints to retrieve the artist's albums, top tracks, and a list of related artists. On the next page, we'll make an application that searches an artist and puts together a playlist of related artists' top tracks.
 					</p>
 					<a href="page4.html" class="button">Continue</a>
 				</div>
