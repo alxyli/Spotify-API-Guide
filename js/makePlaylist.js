@@ -72,7 +72,7 @@ function getTopTracks(artistID){
 	var req = new XMLHttpRequest();
 	var artistPayload = artistID;
 	JSON.stringify(artistPayload);
-	console.log(artistPayload);
+	
 	req.open("GET", "https://api.spotify.com/v1/artists/" + artistPayload + "/top-tracks" + "?country=us");
 	req.addEventListener("load", function(){
 		if (req.status >= 200 && req.status < 400){						
@@ -81,7 +81,7 @@ function getTopTracks(artistID){
 				topTracks[i] = response.tracks[i].name;
 			}
 
-			document.getElementById("playlist").textContent += response.tracks[0].artists[0].name + " - " + "\n" + JSON.stringify(topTracks) + "\n" + "\n";
+			document.getElementById("playlist").textContent += response.tracks[0].artists[0].name + " - " + "\n" + topTracks + "\n" + "\n";
 		}
 
 		else
