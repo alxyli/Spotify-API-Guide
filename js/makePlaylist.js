@@ -35,13 +35,14 @@ function playlistButton(){
 
 function generatePlaylist(){
 	document.getElementById("playlistSubmit").addEventListener("click", function(event){
+
+		if (document.getElementById("playlist").textContent != 0){
+			document.getElementById("playlist").textContent = "";
+		}
+
 		for (var p in relArtists){
 			getTopTracks(relArtists[p]);
 		}
-
-
-
-
 	});
 
 }	
@@ -83,7 +84,7 @@ function getTopTracks(artistID){
 					topTracks[i] = response.tracks[i].name;
 				}
 
-				document.getElementById("playlist").textContent += response.tracks[0].artists[0].name + " - " + "\n" + JSON.stringify(topTracks + " ") + "\n" + "\n";
+				document.getElementById("playlist").textContent += response.tracks[0].artists[0].name + " - " + "\n" + JSON.stringify(topTracks) + "\n" + "\n";
 			}
 
 			else
