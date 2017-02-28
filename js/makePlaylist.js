@@ -51,7 +51,7 @@ function getRelatedArtists(artistID){
 	});
 
 	req.send(null);
-	event.preventDefault();
+	//event.preventDefault();
 }
 
 function getTopTracks(artistID){
@@ -75,7 +75,7 @@ function getTopTracks(artistID){
 	});
 
 	req.send(null);
-	event.preventDefault();
+	//event.preventDefault();
 }
 
 function generatePlaylist(){
@@ -88,7 +88,6 @@ function generatePlaylist(){
 		for (var p in relArtists){
 			getTopTracks(relArtists[p]);
 		}
-	});
-}	
-
+	});	
+}
 
