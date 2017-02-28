@@ -31,20 +31,6 @@ function playlistButton(){
 	});
 }
 
-function generatePlaylist(){
-	document.getElementById("playlistSubmit").addEventListener("click", function(event){
-
-		if (document.getElementById("playlist").textContent != 0){
-			document.getElementById("playlist").textContent = "";
-		}
-
-		for (var p in relArtists){
-			getTopTracks(relArtists[p]);
-		}
-	});
-
-}	
-
 function getRelatedArtists(artistID){
 	var req = new XMLHttpRequest();
 	var payload = artistID;
@@ -91,5 +77,18 @@ function getTopTracks(artistID){
 	req.send(null);
 	event.preventDefault();
 }
+
+function generatePlaylist(){
+	document.getElementById("playlistSubmit").addEventListener("click", function(event){
+
+		if (document.getElementById("playlist").textContent != 0){
+			document.getElementById("playlist").textContent = "";
+		}
+
+		for (var p in relArtists){
+			getTopTracks(relArtists[p]);
+		}
+	});
+}	
 
 
