@@ -28,6 +28,7 @@ function playlistButton(){
 
 		req.send(null);
 		event.preventDefault();
+
 	});
 }
 
@@ -45,14 +46,13 @@ function getRelatedArtists(artistID){
 			}
 		}
 	
-
 		else
 			console.log("Error in network request: " + req.statusText);
 	});
 
 	req.send(null);
 	event.preventDefault();
-};
+}
 
 function getTopTracks(artistID){
 	var req = new XMLHttpRequest();
