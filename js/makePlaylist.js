@@ -51,7 +51,6 @@ function getRelatedArtists(artistID){
 	});
 
 	req.send(null);
-	//event.preventDefault();
 }
 
 function getTopTracks(artistID){
@@ -75,7 +74,6 @@ function getTopTracks(artistID){
 	});
 
 	req.send(null);
-	//event.preventDefault();
 }
 
 function generatePlaylist(){
