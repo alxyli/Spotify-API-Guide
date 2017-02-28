@@ -17,8 +17,6 @@ function playlistButton(){
 		req.addEventListener("load", function(){
 		if (req.status >= 200 && req.status < 400){
 			var response = JSON.parse(req.responseText);
-			console.log(response);
-				
 			artistID = response.artists.items["0"].id;
 			getRelatedArtists(artistID);
 		}
@@ -77,18 +75,17 @@ function getTopTracks(artistID){
 	console.log(artistPayload);
 	req.open("GET", "https://api.spotify.com/v1/artists/" + artistPayload + "/top-tracks" + "?country=us");
 	req.addEventListener("load", function(){
-			if (req.status >= 200 && req.status < 400){						
-				var response = JSON.parse(req.responseText);
-				console.log(response);
-				for (var i in response.tracks){
-					topTracks[i] = response.tracks[i].name;
-				}
-
-				document.getElementById("playlist").textContent += response.tracks[0].artists[0].name + " - " + "\n" + JSON.stringify(topTracks) + "\n" + "\n";
+		if (req.status >= 200 && req.status < 400){						
+			var response = JSON.parse(req.responseText);
+			for (var i in response.tracks){
+				topTracks[i] = response.tracks[i].name;
 			}
 
-			else
-				console.log("Error in network request: " + req.statusText);
+			document.getElementById("playlist").textContent += response.tracks[0].artists[0].name + " - " + "\n" + JSON.stringify(topTracks) + "\n" + "\n";
+		}
+
+		else
+			console.log("Error in network request: " + req.statusText);
 	});
 
 	req.send(null);
