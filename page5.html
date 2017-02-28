@@ -39,14 +39,43 @@
 				<div class="container">
 
 					<header class="major">
-						<h2>Generic</h2>
-						<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+						<h2>Top Tracks Playlist Maker</h2>
+						<p>Nice job! You made it to the end and we made a sweet playlist generator. I hope that was informative! You've now finished the how-to guide, get your groove on with some playlists and let's see what you can do with Spotify's API</p>
+						<br>
+						<span>ƪ(˘⌣˘)┐ ƪ(˘⌣˘)ʃ ┌(˘⌣˘)ʃ</span>
 					</header>
 
-					<p>Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan.</p>
-					<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan commodo odio cubilia ac eu interdum placerat placerat arcu commodo lobortis adipiscing semper ornare pellentesque.</p>
-					<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet blandit adipiscing arcu ante.</p>
-
+					<form>
+						<fieldset>
+							<div>
+							<label>Search an artist:
+								<input type="text" name="artist" id="artist" size="30" maxlength="50">
+							</label>
+							</div>
+							<br>
+							<div>
+								<input type="submit" value="Search" id="artistSubmit">
+						</fieldset>
+					</form>
+					<div>
+					<h2>Artist Info</h2>
+					<ul>
+						<li><span>Artist: </span><span id="artistName"></span></li>
+						<li><span>Popularity: </span><span id="artistPop"></span></li>
+						<li><span>Total followers: </span><span id="artistFoll"></span></li>
+						<li><span>Genres: </span><span id="artistGenre"></span></li>
+						<br>
+						<img id="artistPic"></img>
+					</ul>
+					<h2>Top Tracks from Related Artists</h2>
+						<input type="submit" value="Generate" id="playlistSubmit">
+						<br>
+						<br>
+						<pre id="playlist"></pre>
+					</div>
+					<br>
+					<script src="js/searchArtist.js"></script>
+					<script src="js/makePlaylist.js"></script>
 				</div>
 			</section>
 
