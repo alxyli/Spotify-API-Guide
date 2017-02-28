@@ -72,7 +72,7 @@ function getTopTracks(artistID){
 	var req = new XMLHttpRequest();
 	var artistPayload = artistID;
 	JSON.stringify(artistPayload);
-	
+
 	req.open("GET", "https://api.spotify.com/v1/artists/" + artistPayload + "/top-tracks" + "?country=us");
 	req.addEventListener("load", function(){
 		if (req.status >= 200 && req.status < 400){						
