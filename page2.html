@@ -49,7 +49,7 @@
 					<p>Spotify's API allows applications to retrieve data from their music catalog, as well as manage users' playlists and saved music libraries. The API essentially consists of a bunch of endpoints that when called, will return the requested information, like albums, artists, songs, top songs, and much more. Some information, like retrieving user profiles, getting currently featured playlists, or getting a list of new releases, requires a server-side secret key exchange (a bit more on this below), so we'll be focusing on retrieving data from endpoints that don't require this exchange.</p>
 
 					<h3>Spotify Authentication and API Endpoints</h3>
-					<p>As I mentioned above, some requests to certain Spotify API endpoints require authorization, typically when the request involves fetching user information. Since we'll only be retrieving data like artists, albums, and songs in this guide, we don't need to exchange client credentials with their servers. Although we are accessing Spotify's API without an access token, the rate limit should be adequate for normal use and especially for the purposes of this guide. With that in mind, a complete list of Spotify's API endpoints can be found <a href="https://developer.spotify.com/web-api/endpoint-reference/">here</a>.
+					<p>As I mentioned above, some requests to certain Spotify API endpoints require authorization, mostly when the requests involve fetching user information. Since we'll only be retrieving data like artists, albums, and songs in this guide, we don't need to exchange client credentials with their servers, and so we won't go into the authorization flow methods that Spotify has setup. If you'd like to build an application that does require authorization after going through this guide, you can view Spotify's documentation on API authorization <a href="https://developer.spotify.com/web-api/authorization-guide/#frequently-asked-questions-about-authorization">here</a>. Although we are accessing Spotify's API without an access token, the rate limit should be adequate for normal use and especially for the purposes of the web application we'll be building at the end. With that in mind, a complete list of Spotify's API endpoints can be found <a href="https://developer.spotify.com/web-api/endpoint-reference/">here</a>.
 					</p>
 
 					<h3>Our first request</h3>
@@ -59,7 +59,7 @@
 					<br><br>
 					Let's start by making a call to the search endpoint: <code>GET https://api.spotify.com/v1/search</code>
 					<br>
-					This endpoint requires two parameters: 
+					The search endpoint is a GET request, and it requires two parameters: 
 					<ul>
 						<li>q: the search query's keywords</li>
 						<li>type: a comma separated list of types to search. The valid types are album, artist, playlist, and track</li>
@@ -75,7 +75,7 @@
 					<br>
 					<img src="images/mozartRequest.jpg" style="max-width: 55%">
 					<br>
-					We start a new request <code>var req = new XMLHttpRequest()</code> and open the request to the specific Spotify API endpoint we want. In this case, we're using the request we made earlier to call a search for Mozart in Spotify's catalog: <code>https://api.spotify.com/v1/search?q=mozart&type=artist</code>. If the request was successful, we hold the response in a variable and parse it, then output the response to the console. So what exactly <i>is</i> the response that we get?
+					We start a new HTTP request <code>var req = new XMLHttpRequest()</code> and open the request to the specific Spotify API endpoint we want. In this case, we're using the request we made earlier to call a search for Mozart in Spotify's catalog: <code>https://api.spotify.com/v1/search?q=mozart&type=artist</code>. If the request was successful, we hold the response in a variable and parse it, then output the response to the console. So what exactly <i>is</i> the response that we get from this call?
 					</p>
 					<a href="page3.html" class="button">Continue</a>
 				</div>
