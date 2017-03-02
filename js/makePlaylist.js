@@ -22,13 +22,11 @@ function playlistButton(){
 		}
 			
 		else
-	
 			console.log("Error in network request: " + req.statusText);
 		});
 
 		req.send(null);
 		event.preventDefault();
-
 	});
 }
 
@@ -36,7 +34,7 @@ function getRelatedArtists(artistID){
 	var req = new XMLHttpRequest();
 	var payload = artistID;
 
-	req.open("GET", "https://api.spotify.com/v1/artists/" + payload + "/related-artists");
+	req.open("GET", "https://api.spotify.com/v1/artists/" + payload + "/related-artists", true);
 	req.addEventListener("load", function(){
 		if (req.status >= 200 && req.status < 400){
 			var response = JSON.parse(req.responseText);
@@ -58,7 +56,7 @@ function getTopTracks(artistID){
 	var artistPayload = artistID;
 	JSON.stringify(artistPayload);
 
-	req.open("GET", "https://api.spotify.com/v1/artists/" + artistPayload + "/top-tracks" + "?country=us");
+	req.open("GET", "https://api.spotify.com/v1/artists/" + artistPayload + "/top-tracks" + "?country=us", true);
 	req.addEventListener("load", function(){
 		if (req.status >= 200 && req.status < 400){						
 			var response = JSON.parse(req.responseText);
@@ -86,6 +84,8 @@ function generatePlaylist(){
 		for (var p in relArtists){
 			getTopTracks(relArtists[p]);
 		}
+
+		event.preventDefault();
 	});	
 }
 
