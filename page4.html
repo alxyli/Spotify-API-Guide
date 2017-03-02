@@ -47,8 +47,15 @@
 					</header>
 
 					<h3>Getting the artist's Spotify ID and their related artists</h3>
-					<p>First, we're going to recycle most of the code we used in the simple artist search from the previous page, but this time instead of extracting data about the searched artist, we're just interested in retrieving their Spotify ID from the response. The Spotify ID is important since the endpoints we'll be making calls to later on to retrieve related artists and top tracks require the ID in the query. </p>
-
+					<p>We're going to recycle most of the code we used in the simple artist search from the previous page, but this time instead of extracting profile data from the response, we're interested in retrieving the artist's Spotify ID, which is a base-62 identifer unique to every item in Spotify's catalogue (artists, tracks, albums, playlists, etc). Everything looks pretty much the same, except we'll be saving the artist ID from the JSON object to the <code>artistID</code>variable:
+					<br>
+					<img src="images/modifiedSearch.jpg" style="max-width:40%">
+					<br>
+					Then the function <code>getRelatedArtists</code> is called; this function receives the <code>artistID</code> and makes a call to the endpoint that retrieves an artist's related artists. That endpoint looks like this: <code>GET https://api.spotify.com/v1/artists/{id}/related-artists</code>
+					<br>
+					
+					</p>
+					
 
 
 					<a href="page5.html" class="button">Continue</a>
