@@ -38,7 +38,7 @@ function getRelatedArtists(artistID){
 	req.addEventListener("load", function(){
 		if (req.status >= 200 && req.status < 400){
 			var response = JSON.parse(req.responseText);
-			console.log(response);
+	
 			for (var i in response.artists){
 				relArtists[i] = response.artists[i].id;
 			}
@@ -60,7 +60,7 @@ function getTopTracks(artistID){
 	req.addEventListener("load", function(){
 		if (req.status >= 200 && req.status < 400){						
 			var response = JSON.parse(req.responseText);
-			console.log(response);
+			
 			for (var i in response.tracks){
 				topTracks[i] = response.tracks[i].name;
 			}
