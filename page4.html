@@ -65,9 +65,9 @@
 					<h3>Getting top tracks from the related artists</h3>
 					<p>Almost done! Now we have an array that holds Spotify IDs for all of the searched artist's related artists. The final endpoint we'll be making a call to retrieves an artist's top tracks. That endpoint looks like this: <code>GET https://api.spotify.com/v1/artists/{id}/top-tracks</code>
 					<br>
-					The function <code>getTopTracks</code> will receive an artistID and open a GET request to that endpoint:
+					The function <code>getTopTracks</code> will receive an artistID and open a GET request to the top tracks endpoint:
 					<br>
-					<img src="images/getTopTracks.jpg" style="max-width:60%">
+					<img src="images/getTopTracks.jpg" style="max-width:63%">
 					<br>
 					If the request is successful, the response returns another array, this time holding up to 10 track objects in JSON format:
 					<br>
