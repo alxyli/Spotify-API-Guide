@@ -65,7 +65,12 @@
 					<h3>Getting top tracks from the related artists</h3>
 					<p>Almost done! Now we have an array that holds Spotify IDs for all of the searched artist's related artists. The final endpoint we'll be making a call to retrieves an artist's top tracks. That endpoint looks like this: <code>GET https://api.spotify.com/v1/artists/{id}/top-tracks</code>
 					<br>
-					The function <code>getTopTracks</code> will receive an artistID and open a GET request to the top tracks endpoint:
+					This endpoint is another GET request and it requires two parameters:
+					<ul>
+						<li>id: the Spotify ID of the artist</li>
+						<li>country: the country code</li>
+					</ul>
+					The function <code>getTopTracks</code> will receive an artistID and open a request to the top tracks endpoint, inserting the artist ID and country code into the request (for the purposes of our playlist generator, we'll set the country code to US):
 					<br>
 					<img src="images/getTopTracks.jpg" style="max-width:63%">
 					<br>
