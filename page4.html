@@ -47,20 +47,38 @@
 					</header>
 
 					<h3>Getting the artist's Spotify ID and their related artists</h3>
-					<p>We're going to recycle most of the code we used in the simple artist search from the previous page, but this time instead of extracting profile data from the response, we're interested in retrieving the artist's Spotify ID, which is a base-62 identifer unique to every item in Spotify's catalogue (artists, tracks, albums, playlists, etc). Everything looks pretty much the same, except we'll be saving the Spotify ID from the JSON object to the <code>artistID</code>variable:
+					<p>We're going to recycle most of the code we used in the simple artist search from the previous page, but this time instead of extracting profile data from the response, we're interested in retrieving the artist's Spotify ID, which is a base-62 identifer unique to every item in Spotify's catalogue (artists, tracks, albums, playlists, etc). Everything looks pretty much the same, except we'll be saving the Spotify ID from the response to the <code>artistID</code>variable:
 					<br>
 					<img src="images/modifiedSearch.jpg" style="max-width:40%">
 					<br>
 					Then the function <code>getRelatedArtists</code> is called; this function receives the <code>artistID</code> and makes a call to the endpoint that retrieves an artist's related artists. That endpoint looks like this: <code>GET https://api.spotify.com/v1/artists/{id}/related-artists</code>
 					<br>
-					If the request is successful, we'll then store all related artists' Spotify IDs in an array called <code>relArtists</code>:
+					If the request is successful, it'll return an array of up to 20 artist objects in JSON format:
+					<br>
+					<img src="images/relArtists.jpg" style="max-width:30%">
+					<br>
+					We'll then parse and store all related artists' Spotify IDs in an array called <code>relArtists</code>:
 					<br>
 					<img src="images/getRelArtists.jpg" style="max-width:50%">
-
 					</p>
-					
 
-
+					<h3>Getting top tracks from the related artists</h3>
+					<p>Almost done! Now we have an array that holds Spotify IDs for all of the searched artist's related artists. The final endpoint we'll be making a call to retrieves an artist's top tracks. That endpoint looks like this: <code>GET https://api.spotify.com/v1/artists/{id}/top-tracks</code>
+					<br>
+					The function <code>getTopTracks</code> will receive an artistID and open a GET request to that endpoint:
+					<br>
+					<img src="images/getTopTracks.jpg" style="max-width:58%">
+					<br>
+					If the request is successful, the response returns another array, this time holding up to 10 track objects in JSON format:
+					<br>
+					<img src="images/topTracks.jpg" style="max-width:40%">
+					<br>
+					Now we just store all the top tracks in another array <code>topTracks</code> and display the tracks in HTML. We repeat this process for all of the related artists' Spotify IDs; in the function <code>generatePlaylist</code>, we call <code>getTopTracks</code> on every element in the <code>relArtists</code> array:
+					<br>
+					<img src="images/genPlaylist.jpg" style="max-width:40%">
+					<br>
+					On the next page you'll see an example of the playlist generator in action. 
+					</p>
 					<a href="page5.html" class="button">Continue</a>
 				</div>
 			</section>

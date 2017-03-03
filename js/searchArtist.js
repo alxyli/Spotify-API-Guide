@@ -12,6 +12,7 @@ function artistButton(){
 		req.addEventListener("load", function(){
 			if (req.status >= 200 && req.status < 400){
 				var response = JSON.parse(req.responseText);
+				
 				document.getElementById("artistName").textContent = response.artists.items["0"].name;
 
 				var artistImg = document.getElementById("artistPic");
