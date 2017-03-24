@@ -1,1 +1,1 @@
-Spotify API How-To Guide & Playlist Generator
+Spotify API How-To Guide & Playlist Generator (CS290)
